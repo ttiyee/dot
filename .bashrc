@@ -1,0 +1,73 @@
+#!/bin/bash
+#
+#
+#
+#
+
+
+
+
+    # Interactive
+    [ -z "$PS1" ] && return
+
+    # Alias(s)
+    alias clipboard="xclip -i -selection clipboard"
+    alias cp='cp -v'
+    alias ll='ls -vlhF --color'
+    alias ls='ls -vF --color'
+    alias less='less -R'
+    alias mkdir='mkdir -p'
+    alias mv='mv -iv'
+    alias readme='pandoc -s -f markdown -t man README.md | groff -T utf8 -man | less'
+    alias syn="rsync --progress -avz -e ssh "
+    alias startxs='startx -- -dpi 50'
+    alias startxl='startx -- -dpi 150'
+    alias youtube-dl-sync='youtube-dl --download-archive .history --no-post-overwrites -ciwx -o "%(title)s.%(ext)s" --batch-file .url'
+
+    # Autocomplete
+    [ -r /usr/share/bash-completion/bash_completion     ] && . /usr/share/bash-completion/bash_completion
+    [ -r /etc/docker.autocomplete                       ] && . /etc/docker.autocomplete
+
+    # Base16 Shell
+    BASE16_SHELL="/opt/base16-shell/base16-google.dark.sh"
+    [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
+
+    # Default(s)
+    alias default-file-browser='ranger'
+    alias default-music-player='cmus'
+    alias default-pdf-viewer='zathura'
+    alias default-picture-viewer='gpicview'
+    alias default-video-player='smplayer'
+
+    # Enviromental(s)
+    export EDITOR=vim
+    export GTK_THEME=Arc
+    export TERMINAL=mate-terminal
+    export VISUAL=vim
+
+    # PS1
+    PS1b='\[\e[1;30m\]'
+    PS1e='\[\e[m\]'
+    PS1u='\[\e[1;36m\]'
+    if [ $UID -eq 0 ]; then
+        PS1u='\[\e[1;31m\]'
+    fi
+    PS1="\n$PS1b[$PS1e\t$PS1b][$PS1u\u$PS1b@$PS1e\h$PS1b]$PS1u :: \[\e[m\]"
+
+    # Start - X - tty1
+    if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
+        if [ $UID -ne 0 ]; then
+            startx
+        fi
+    fi
+
+    # Update [ lines & columns ]
+    shopt -s checkwinsize
+
+
+
+
+#
+#
+#
+#
