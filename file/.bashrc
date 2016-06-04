@@ -57,7 +57,11 @@
     # Start - X - tty1
     if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
         if [ $UID -ne 0 ]; then
-            startx
+            if [[ $(hostname -s) = 'laptop' ]]; then
+                startxl
+            else
+                startx
+            fi
         fi
     fi
 
