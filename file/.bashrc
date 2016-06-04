@@ -20,8 +20,8 @@
     alias mv='mv -iv'
     alias readme='pandoc -s -f markdown -t man README.md | groff -T utf8 -man | less'
     alias syn="rsync --progress -avz -e ssh "
-    alias startxs='startx -- -dpi 50'
-    alias startxl='startx -- -dpi 150'
+    alias startxs='startx -- -dpi 48'
+    alias startxl='startx -- -dpi 144'
     alias youtube-dl-sync='youtube-dl --download-archive .history --no-post-overwrites -ciwx -o "%(title)s.%(ext)s" --batch-file .url'
 
     # Autocomplete
