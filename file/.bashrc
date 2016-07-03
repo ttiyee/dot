@@ -45,6 +45,11 @@
     export TERMINAL=mate-terminal
     export VISUAL=vim
 
+    # Path
+    if [ -d "/git/common/bin" ]; then
+        export PATH="$PATH:/git/common/bin"
+    fi
+
     # PS1
     PS1b='\[\e[1;30m\]'
     PS1e='\[\e[m\]'
