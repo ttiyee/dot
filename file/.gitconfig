@@ -1,0 +1,5 @@
+[user]
+	email = user.loca@gmail.com
+	name = root
+[push]
+	default = simple

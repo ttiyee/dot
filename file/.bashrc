@@ -20,8 +20,8 @@
     alias mv='mv -iv'
     alias readme='pandoc -s -f markdown -t man README.md | groff -T utf8 -man | less'
     alias syn="rsync --progress -avz -e ssh "
-    alias startxs='startx -- -dpi 50'
-    alias startxl='startx -- -dpi 150'
+    alias startxs='startx -- -dpi 48'
+    alias startxl='startx -- -dpi 168'
     alias youtube-dl-sync='youtube-dl --download-archive .history --no-post-overwrites -ciwx -o "%(title)s.%(ext)s" --batch-file .url'
 
     # Autocomplete
@@ -62,7 +62,11 @@
     # Start - X - tty1
     if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
         if [ $UID -ne 0 ]; then
-            startx
+            if [[ $(hostname -s) = 'laptop' ]]; then
+                startxl
+            else
+                startx
+            fi
         fi
     fi
 
