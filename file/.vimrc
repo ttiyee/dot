@@ -104,7 +104,7 @@ set scrolloff=8         "Start scrolling when we're 8 lines away from margins
 set sidescrolloff=15
 set sidescroll=1
 
-
+"
 " =============== Colors ===========================
 set t_Co=256
 if filereadable(expand("~/.vim/colors/wombat256mod.vim"))
@@ -112,5 +112,3 @@ if filereadable(expand("~/.vim/colors/wombat256mod.vim"))
 endif
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 set bg=dark
-
-
