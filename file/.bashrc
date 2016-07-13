@@ -22,7 +22,6 @@
     alias syn="rsync --progress -avz -e ssh "
     alias startxs='startx -- -dpi 48'
     alias startxl='startx -- -dpi 168'
-    alias youtube-dl-sync='youtube-dl --download-archive .history --no-post-overwrites -ciwx -o "%(title)s.%(ext)s" --batch-file .url'
 
     # Autocomplete
     [ -r /usr/share/bash-completion/bash_completion     ] && . /usr/share/bash-completion/bash_completion
@@ -45,6 +44,10 @@
     export TERMINAL=mate-terminal
     export VISUAL=vim
 
+    # Hostname
+    hostname=$(hostname)
+    export HOSTNAME=${hostname,,}
+
     # Path
     if [ -d "/git/common/bin" ]; then
         export PATH="$PATH:/git/common/bin"
@@ -57,7 +60,7 @@
     if [ $UID -eq 0 ]; then
         PS1u='\[\e[1;31m\]'
     fi
-    PS1="\n$PS1b[$PS1e\t$PS1b][$PS1u\u$PS1b@$PS1e\h$PS1b]$PS1u :: \[\e[m\]"
+    PS1="\n$PS1b[$PS1e\t$PS1b][$PS1u\u$PS1b@$PS1e$HOSTNAME$PS1b]$PS1u :: \[\e[m\]"
 
     # Start - X - tty1
     if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
@@ -68,6 +71,14 @@
                 startx
             fi
         fi
+    fi
+
+    # Window(s)
+    if [ -d /mnt/c/Windows ] || [ $LC_WINDOWS10 ]; then
+        export WINDOWS10=0
+    fi
+    if [ $WINDOWS10 ]; then
+        export LC_WINDOWS10=$WINDOWS10
     fi
 
     # Update [ lines & columns ]
