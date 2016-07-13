@@ -81,6 +81,9 @@
         export LC_WINDOWS10=$WINDOWS10
     fi
 
+    # Umask
+    umask 022
+
     # Update [ lines & columns ]
     shopt -s checkwinsize
 
