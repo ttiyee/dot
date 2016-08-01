@@ -21,7 +21,7 @@
     alias readme='pandoc -s -f markdown -t man README.md | groff -T utf8 -man | less'
     alias syn="rsync --progress -avz -e ssh "
     alias startxs='startx -- -dpi 48'
-    alias startxl='startx -- -dpi 168'
+    alias startxl='startx -- -dpi 180'
 
     # Autocomplete
     [ -r /usr/share/bash-completion/bash_completion     ] && . /usr/share/bash-completion/bash_completion
@@ -40,7 +40,7 @@
 
     # Enviromental(s)
     export EDITOR=vim
-    export GTK_THEME=Arc
+    export GTK_THEME=Numix
     export TERMINAL=mate-terminal
     export VISUAL=vim
 
