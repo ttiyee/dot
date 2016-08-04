@@ -47,11 +47,6 @@
     # Hostnickname
     export HOSTNICKNAME=$(hostname | cut -d'-' -f1)
 
-    # Path
-    if [ -d "/git/common/bin" ]; then
-        export PATH="$PATH:/git/common/bin"
-    fi
-
     # PS1
     PS1b='\[\e[1;30m\]'
     PS1e='\[\e[m\]'
@@ -81,7 +76,7 @@
     fi
 
     # Umask
-    umask 022
+    umask 027
 
     # Update [ lines & columns ]
     shopt -s checkwinsize
