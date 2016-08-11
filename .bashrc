@@ -47,6 +47,9 @@
     # Hostnickname
     export HOSTNICKNAME=$(hostname | cut -d'-' -f1)
 
+    # Mark
+    hash mark 2>/dev/null && [ ! -z "$(mark --latest)" ] && cd $(mark --latest)
+
     # PS1
     PS1b='\[\e[1;30m\]'
     PS1e='\[\e[m\]'
@@ -55,6 +58,11 @@
         PS1u='\[\e[1;31m\]'
     fi
     PS1="\n$PS1b[$PS1e\t$PS1b][$PS1u\u$PS1b@$PS1e$HOSTNICKNAME$PS1b]$PS1u :: \[\e[m\]"
+
+    # Path
+    [ -d '/git/build/aln/bin'   ] && export PATH=$PATH:'/git/build/aln/bin'
+    [ -d '/git/build/mark/bin'  ] && export PATH=$PATH:'/git/build/mark/bin'
+    [ -d '/git/build/sovpn/bin' ] && export PATH=$PATH:'/git/build/sovpn/bin'
 
     # Start - X - tty1
     if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
