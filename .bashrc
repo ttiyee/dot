@@ -47,10 +47,8 @@
     # Hostnickname
     export HOSTNICKNAME=$(hostname | cut -d'-' -f1)
 
-    # Path
-    if [ -d "/git/common/bin" ]; then
-        export PATH="$PATH:/git/common/bin"
-    fi
+    # Mark
+    hash mark 2>/dev/null && [ ! -z "$(mark --latest)" ] && cd $(mark --latest)
 
     # PS1
     PS1b='\[\e[1;30m\]'
@@ -60,6 +58,14 @@
         PS1u='\[\e[1;31m\]'
     fi
     PS1="\n$PS1b[$PS1e\t$PS1b][$PS1u\u$PS1b@$PS1e$HOSTNICKNAME$PS1b]$PS1u :: \[\e[m\]"
+
+    # Path - Build
+    for bin in `find /git/build -name bin | grep build`; do 
+        export PATH="$PATH:$bin"
+    done
+
+    # Path - Common
+    [ -d '/git/common/bin' ] && export PATH=$PATH:'/git/common/bin'
 
     # Start - X - tty1
     if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
@@ -81,7 +87,7 @@
     fi
 
     # Umask
-    umask 022
+    umask 027
 
     # Update [ lines & columns ]
     shopt -s checkwinsize
