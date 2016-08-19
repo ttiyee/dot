@@ -10,6 +10,12 @@
     # Interactive
     [ -z "$PS1" ] && return
 
+    # X-tend / Override
+    [ -e "$HOME/.bashrcx" ] && source "$HOME/.bashrcx"
+
+
+
+
     # Alias(s)
     alias clipboard="xclip -i -selection clipboard"
     alias cp='cp -v'
@@ -91,9 +97,6 @@
 
     # Update [ lines & columns ]
     shopt -s checkwinsize
-
-    # X-tend
-    [ -e "$HOME/.bashrcx" ] && source "$HOME/.bashrcx"
 
 
 
