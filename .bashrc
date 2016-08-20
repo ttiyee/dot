@@ -66,7 +66,7 @@
     PS1="\n$PS1b[$PS1e\t$PS1b][$PS1u\u$PS1b@$PS1e$HOSTNICKNAME$PS1b]$PS1u :: \[\e[m\]"
 
     # Path - Build
-    for bin in `find /git/build -name bin | grep build`; do 
+    for bin in `find /git/build -maxdepth 2 -name bin | grep build`; do
         export PATH="$PATH:$bin"
     done
 
