@@ -93,7 +93,7 @@
     fi
 
     # Umask
-    umask 027
+    umask 055
 
     # Update [ lines & columns ]
     shopt -s checkwinsize
