@@ -10,6 +10,12 @@
     # Interactive
     [ -z "$PS1" ] && return
 
+    # X-tend / Override
+    [ -e "$HOME/.bashrcx" ] && source "$HOME/.bashrcx"
+
+
+
+
     # Alias(s)
     alias clipboard="xclip -i -selection clipboard"
     alias cp='cp -v'
@@ -21,8 +27,8 @@
     alias mv='mv -iv'
     alias readme='pandoc -s -f markdown -t man README.md | groff -T utf8 -man | less'
     alias syn="rsync --progress -avz -e ssh "
-    alias startxs='startx -- -dpi 48'
-    alias startxl='startx -- -dpi 180'
+    alias startxs='startx -- -dpi 64'
+    alias startxl='startx -- -dpi 192'
 
     # Autocomplete
     [ -r /usr/share/bash-completion/bash_completion     ] && . /usr/share/bash-completion/bash_completion
