@@ -16,6 +16,7 @@
     alias ll='ls -vlhF --color'
     alias ls='ls -vF --color'
     alias less='less -R'
+    alias mark='. mark'
     alias mkdir='mkdir -p'
     alias mv='mv -iv'
     alias readme='pandoc -s -f markdown -t man README.md | groff -T utf8 -man | less'
@@ -50,6 +51,11 @@
     # Mark
     hash mark 2>/dev/null && [ ! -z "$(mark --latest)" ] && cd $(mark --latest)
 
+    # Path(s)
+    [ -d '/git/build/mark/bin'  ] && export PATH=$PATH:'/git/build/mark/bin'
+    [ -d '/git/build/sovpn/bin' ] && export PATH=$PATH:'/git/build/sovpn/bin'
+    [ -d '/git/common/bin'      ] && export PATH=$PATH:'/git/common/bin'
+
     # PS1
     PS1b='\[\e[1;30m\]'
     PS1e='\[\e[m\]'
@@ -58,14 +64,6 @@
         PS1u='\[\e[1;31m\]'
     fi
     PS1="\n$PS1b[$PS1e\t$PS1b][$PS1u\u$PS1b@$PS1e$HOSTNICKNAME$PS1b]$PS1u :: \[\e[m\]"
-
-    # Path - Build
-    for bin in `find /git/build -name bin | grep build`; do 
-        export PATH="$PATH:$bin"
-    done
-
-    # Path - Common
-    [ -d '/git/common/bin' ] && export PATH=$PATH:'/git/common/bin'
 
     # Start - X - tty1
     if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
@@ -87,7 +85,7 @@
     fi
 
     # Umask
-    umask 027
+    umask 055
 
     # Update [ lines & columns ]
     shopt -s checkwinsize
