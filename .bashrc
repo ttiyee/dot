@@ -22,7 +22,7 @@
     alias ll='ls -vlhF --color'
     alias ls='ls -vF --color'
     alias less='less -R'
-    alias mark='. mark'
+    alias mark-lcd='echo = $(mark --latest) && cd $(mark --latest)'
     alias mkdir='mkdir -p'
     alias mv='mv -iv'
     alias readme='pandoc -s -f markdown -t man README.md | groff -T utf8 -man | less'
@@ -55,7 +55,7 @@
     export HOSTNICKNAME=$(hostname | cut -d'-' -f1)
 
     # Mark
-    hash mark 2>/dev/null && [ ! -z "$(mark --latest)" ] && cd $(mark --latest)
+    [ -d '/git/build/mark/bin'  ] && cd $( /git/build/mark/bin/mark --latest )
 
     # Path(s)
     [ -d '/git/build/mark/bin'  ] && export PATH=$PATH:'/git/build/mark/bin'
