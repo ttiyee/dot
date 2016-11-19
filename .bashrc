@@ -47,7 +47,7 @@
     # Enviromental(s)
     export EDITOR=vim
     export GTK_THEME=Numix
-    export TERMINAL=mate-terminal
+    export TERMINAL=terminator
     export VISUAL=vim
 
     # Hostnickname
@@ -93,7 +93,7 @@
     fi
 
     # Umask
-    umask 055
+    umask 022
 
     # Update [ lines & columns ]
     shopt -s checkwinsize
