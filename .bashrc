@@ -10,9 +10,6 @@
     # Interactive
     [ -z "$PS1" ] && return
 
-    # X-tend / Override
-    [ -e "$HOME/.bashrcx" ] && source "$HOME/.bashrcx"
-
 
 
 
@@ -97,6 +94,12 @@
 
     # Update [ lines & columns ]
     shopt -s checkwinsize
+
+
+
+
+    # X-tend / Override
+    [ -e "$HOME/.bashrcx" ] && source "$HOME/.bashrcx"
 
 
 
