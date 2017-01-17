@@ -5,12 +5,8 @@
 #
 
 
-
-
     # Interactive
     [ -z "$PS1" ] && return
-
-
 
 
     # Alias(s)
@@ -51,13 +47,13 @@
     # Hostnickname
     export HOSTNICKNAME=$(hostname | cut -d'-' -f1)
 
-    # Mark
-    [ -d '/git/build/mark/bin'  ] && cd $( /git/build/mark/bin/mark --latest )
-
     # Path(s)
     for path in $( find /git/develop -name bin ); do
         export PATH="$PATH:$path"
     done
+
+    # Path(s) - Mark
+    if hash mark 2>/dev/null; then cd $( mark --latest ); fi
 
     # PS1
     PS1b='\[\e[1;30m\]'
@@ -94,12 +90,8 @@
     shopt -s checkwinsize
 
 
-
-
     # X-tend / Override
     [ -e "$HOME/.bashrcx" ] && source "$HOME/.bashrcx"
-
-
 
 
 #
