@@ -58,9 +58,9 @@
     [ -d '/git/build/mark/bin'  ] && cd $( /git/build/mark/bin/mark --latest )
 
     # Path(s)
-    [ -d '/git/build/mark/bin'  ] && export PATH=$PATH:'/git/build/mark/bin'
-    [ -d '/git/build/sovpn/bin' ] && export PATH=$PATH:'/git/build/sovpn/bin'
-    [ -d '/git/common/bin'      ] && export PATH=$PATH:'/git/common/bin'
+    for path in $( find /git/develop -name bin ); do
+        export PATH="$PATH:$path"
+    done
 
     # PS1
     PS1b='\[\e[1;30m\]'
