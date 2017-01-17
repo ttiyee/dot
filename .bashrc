@@ -10,9 +10,6 @@
     # Interactive
     [ -z "$PS1" ] && return
 
-    # X-tend / Override
-    [ -e "$HOME/.bashrcx" ] && source "$HOME/.bashrcx"
-
 
 
 
@@ -48,7 +45,7 @@
     # Enviromental(s)
     export EDITOR=vim
     export GTK_THEME=Numix
-    export TERMINAL=mate-terminal
+    export TERMINAL=terminator
     export VISUAL=vim
 
     # Hostnickname
@@ -95,6 +92,12 @@
 
     # Update [ lines & columns ]
     shopt -s checkwinsize
+
+
+
+
+    # X-tend / Override
+    [ -e "$HOME/.bashrcx" ] && source "$HOME/.bashrcx"
 
 
 
