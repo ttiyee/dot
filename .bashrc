@@ -41,8 +41,11 @@
     # Enviromental(s)
     export EDITOR=vim
     export GTK_THEME=Numix
-    export TERMINAL=terminator
+    export TERMINAL=mate-terminal
     export VISUAL=vim
+
+    # History - Format
+    export HISTTIMEFORMAT="%d/%m/%y %T  "
 
     # Hostnickname
     export HOSTNICKNAME=$(hostname | cut -d'-' -f1)
