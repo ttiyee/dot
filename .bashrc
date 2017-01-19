@@ -25,7 +25,7 @@
     alias readme='pandoc -s -f markdown -t man README.md | groff -T utf8 -man | less'
     alias syn="rsync --progress -avz -e ssh "
     alias startxs='startx -- -dpi 64'
-    alias startxl='startx -- -dpi 192'
+    alias startxl='startx -- -dpi 168'
 
     # Autocomplete
     [ -r /usr/share/bash-completion/bash_completion     ] && . /usr/share/bash-completion/bash_completion
