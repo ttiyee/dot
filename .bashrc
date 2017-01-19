@@ -5,12 +5,8 @@
 #
 
 
-
-
     # Interactive
     [ -z "$PS1" ] && return
-
-
 
 
     # Alias(s)
@@ -45,19 +41,22 @@
     # Enviromental(s)
     export EDITOR=vim
     export GTK_THEME=Numix
-    export TERMINAL=terminator
+    export TERMINAL=mate-terminal
     export VISUAL=vim
+
+    # History - Format
+    export HISTTIMEFORMAT="%d/%m/%y %T  "
 
     # Hostnickname
     export HOSTNICKNAME=$(hostname | cut -d'-' -f1)
 
-    # Mark
-    [ -d '/git/build/mark/bin'  ] && cd $( /git/build/mark/bin/mark --latest )
-
     # Path(s)
-    [ -d '/git/build/mark/bin'  ] && export PATH=$PATH:'/git/build/mark/bin'
-    [ -d '/git/build/sovpn/bin' ] && export PATH=$PATH:'/git/build/sovpn/bin'
-    [ -d '/git/common/bin'      ] && export PATH=$PATH:'/git/common/bin'
+    for path in $( find /git/develop -name bin ); do
+        export PATH="$PATH:$path"
+    done
+
+    # Path(s) - Mark
+    if hash mark 2>/dev/null; then cd $( mark --latest ); fi
 
     # PS1
     PS1b='\[\e[1;30m\]'
@@ -94,12 +93,8 @@
     shopt -s checkwinsize
 
 
-
-
     # X-tend / Override
     [ -e "$HOME/.bashrcx" ] && source "$HOME/.bashrcx"
-
-
 
 
 #
