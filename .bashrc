@@ -28,8 +28,8 @@
     [ -r /etc/docker.autocomplete                       ] && . /etc/docker.autocomplete
 
     # Base16 Shell
-    BASE16_SHELL="/opt/base16-shell/base16-google.dark.sh"
-    [[ -s $BASE16_SHELL ]] && source $BASE16_SHELL
+    BASE16_SHELL="/opt/base16-shell/scripts/base16-google-dark.sh"
+    [[ -s $BASE16_SHELL ]] && bash $BASE16_SHELL
 
     # Default(s)
     alias default-file-browser='ranger'
