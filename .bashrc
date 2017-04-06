@@ -56,7 +56,7 @@
     done
 
     # Path(s) - Mark
-    if hash mark 2>/dev/null; then cd $( mark --latest ); fi
+    if hash mark 2>/dev/null; then cd "$( mark --latest )"; fi
 
     # PS1
     PS1b='\[\e[1;30m\]'
