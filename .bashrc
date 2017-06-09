@@ -21,11 +21,12 @@
     alias readme='pandoc -s -f markdown -t man README.md | groff -T utf8 -man | less'
     alias syn="rsync --progress -avz -e ssh "
     alias startxs='startx -- -dpi 64'
-    alias startxl='startx -- -dpi 168'
+    alias startxl='startx -- -dpi 144'
 
     # Autocomplete
-    [ -r /usr/share/bash-completion/bash_completion     ] && . /usr/share/bash-completion/bash_completion
+    [ -r /etc/bash_completion.d/pass.bash-completion    ] && . /etc/bash_completion.d/pass.bash-completion
     [ -r /etc/docker.autocomplete                       ] && . /etc/docker.autocomplete
+    [ -r /usr/share/bash-completion/bash_completion     ] && . /usr/share/bash-completion/bash_completion
 
     # Base16 Shell
     BASE16_SHELL="/opt/base16-shell/scripts/base16-google-dark.sh"
@@ -41,7 +42,7 @@
     # Enviromental(s)
     export EDITOR=vim
     export GTK_THEME=Numix
-    export TERMINAL=mate-terminal
+    export TERMINAL=xfce4-terminal
     export VISUAL=vim
 
     # History - Format
@@ -76,14 +77,6 @@
                 startx
             fi
         fi
-    fi
-
-    # Window(s)
-    if [ -d /mnt/c/Windows ] || [ $LC_WINDOWS10 ]; then
-        export WINDOWS10=0
-    fi
-    if [ $WINDOWS10 ]; then
-        export LC_WINDOWS10=$WINDOWS10
     fi
 
     # Umask
