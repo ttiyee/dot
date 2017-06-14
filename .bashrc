@@ -20,8 +20,8 @@
     alias mv='mv -iv'
     alias readme='pandoc -s -f markdown -t man README.md | groff -T utf8 -man | less'
     alias syn="rsync --progress -avz -e ssh "
-    alias startxs='startx -- -dpi 64'
-    alias startxl='startx -- -dpi 144'
+    alias startxs='startx -- -dpi 80'
+    alias startxl='startx -- -dpi 180'
 
     # Autocomplete
     [ -r /etc/bash_completion.d/pass.bash-completion    ] && . /etc/bash_completion.d/pass.bash-completion
@@ -42,7 +42,7 @@
     # Enviromental(s)
     export EDITOR=vim
     export GTK_THEME=Numix
-    export TERMINAL=xfce4-terminal
+    export TERMINAL=mate-terminal
     export VISUAL=vim
 
     # History - Format
