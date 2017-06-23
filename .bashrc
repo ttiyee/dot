@@ -62,12 +62,12 @@
     # PS1
     PS1b='\[\e[1;97m\]'
     PS1e='\[\e[1;0m\]'
-    PS1u='\[\e[1;96m\]'
+    PS1u='\[\e[1;93m\]'
     PS1r='\[\e[1;0m\]'
     if [ $UID -eq 0 ]; then
         PS1u='\[\e[1;31m\]'
     fi
-    PS1="$PS1b[$PS1e\t$PS1b][$PS1u\u$PS1b@$PS1e$HOSTNICKNAME$PS1b][$PS1e\W$PS1b]$PS1u :: $PS1r"
+    PS1="$PS1b[$PS1u\u$PS1b@$PS1e$HOSTNICKNAME$PS1b] $PS1e\W$PS1b $PS1u::$PS1r"
 
     # Start - X - tty1
     if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
