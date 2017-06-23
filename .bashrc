@@ -49,7 +49,7 @@
     export HISTTIMEFORMAT="%d/%m/%y %T  "
 
     # Hostnickname
-    export HOSTNICKNAME=$(hostname | cut -d'-' -f1)
+    export HOSTNICKNAME=$(cat '/etc/hostname' | cut -d'-' -f1)
 
     # Path(s)
     for path in $( find /git/develop -name bin ); do
