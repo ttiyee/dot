@@ -67,7 +67,7 @@
     if [ $UID -eq 0 ]; then
         PS1u='\[\e[1;31m\]'
     fi
-    PS1="$PS1b[$PS1u\u$PS1b@$PS1e$HOSTNICKNAME$PS1b] $PS1e\W$PS1b $PS1u::$PS1r"
+    PS1="$PS1b[$PS1u\u$PS1b@$PS1e$HOSTNICKNAME$PS1b] $PS1e\W$PS1b $PS1u::$PS1r "
 
     # Start - X - tty1
     if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
