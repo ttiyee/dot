@@ -42,7 +42,8 @@
     # Enviromental(s)
     export EDITOR=vim
     export GTK_THEME=Numix
-    export TERMINAL=mate-terminal
+    export SAL_USE_VCLPLUGIN=gtk
+    export TERMINAL=gnome-terminal
     export VISUAL=vim
 
     # History - Format
@@ -57,7 +58,7 @@
     done
 
     # Path(s) - Mark
-    if hash mark 2>/dev/null; then cd "$( mark --latest )"; fi
+    if hash mark 2>/dev/null; then cd "$( mark latest )"; fi
 
     # PS1
     PS1b='\[\e[1;97m\]'
