@@ -53,7 +53,7 @@
     export HOSTNICKNAME=$(cat '/etc/hostname' | cut -d'-' -f1)
 
     # Path(s)
-    for path in $( find /git/develop -name bin ); do
+    for path in $( find /git/develop -name bin 2> /dev/null ); do
         export PATH="$PATH:$path"
     done
 
