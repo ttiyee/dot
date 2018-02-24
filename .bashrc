@@ -19,9 +19,9 @@
     alias mkdir='mkdir -p'
     alias mv='mv -iv'
     alias readme='pandoc -s -f markdown -t man README.md | groff -T utf8 -man | less'
+    alias startxl='startx -- -dpi 125'
+    alias startxs='startx -- -dpi 75'
     alias syn="rsync --progress -avz -e ssh "
-    alias startxs='startx -- -dpi 80'
-    alias startxl='startx -- -dpi 180'
 
     # Autocomplete
     [ -r /etc/bash_completion.d/pass.bash-completion    ] && . /etc/bash_completion.d/pass.bash-completion
@@ -31,13 +31,6 @@
     # Base16 Shell
     BASE16_SHELL="/opt/base16-shell/scripts/base16-google-dark.sh"
     [[ -s $BASE16_SHELL ]] && bash $BASE16_SHELL
-
-    # Default(s)
-    alias default-file-browser='ranger'
-    alias default-music-player='cmus'
-    alias default-pdf-viewer='zathura'
-    alias default-picture-viewer='gpicview'
-    alias default-video-player='smplayer'
 
     # Enviromental(s)
     export EDITOR=vim
@@ -69,17 +62,6 @@
         PS1u='\[\e[1;31m\]'
     fi
     PS1="$PS1b[$PS1u\u$PS1b@$PS1e$HOSTNICKNAME$PS1b] $PS1e\W$PS1b $PS1u::$PS1r "
-
-    # Start - X - tty1
-    if [[ -z $DISPLAY ]] && [[ $(tty) = /dev/tty1 ]]; then
-        if [ $UID -ne 0 ]; then
-            if [[ `hostname` == 'laptop-lenovo-yoga2pro' ]]; then
-                startxl
-            else
-                startx
-            fi
-        fi
-    fi
 
     # Umask
     umask 0022
