@@ -29,7 +29,7 @@
     [ -r /usr/share/bash-completion/bash_completion     ] && . /usr/share/bash-completion/bash_completion
 
     # Base16 Shell
-    BASE16_SHELL="/opt/base16-shell/scripts/base16-google-dark.sh"
+    BASE16_SHELL="/opt/base16-shell/scripts/base16-nord.sh"
     [[ -s $BASE16_SHELL ]] && bash $BASE16_SHELL
 
     # Enviromental(s)
@@ -51,7 +51,7 @@
     done
 
     # Path(s) - Mark
-    if hash mark 2>/dev/null; then cd "$( mark latest )"; fi
+    if hash mark 2>/dev/null; then cd "$( mark --latest )"; fi
 
     # PS1
     PS1b='\[\e[1;97m\]'
