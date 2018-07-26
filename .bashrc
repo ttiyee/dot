@@ -28,9 +28,8 @@
     [ -r /etc/docker.autocomplete                       ] && . /etc/docker.autocomplete
     [ -r /usr/share/bash-completion/bash_completion     ] && . /usr/share/bash-completion/bash_completion
 
-    # Base16 Shell
-    BASE16_SHELL="/opt/base16-shell/scripts/base16-nord.sh"
-    [[ -s $BASE16_SHELL ]] && bash $BASE16_SHELL
+    # Base16 Shell Color
+    [ -e "$HOME/.color" ] && bash "$HOME/.color"
 
     # Enviromental(s)
     export EDITOR=vim
