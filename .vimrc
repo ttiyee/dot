@@ -95,3 +95,10 @@ if filereadable(expand("~/.vim/colors/wombat256mod.vim"))
 endif
 
 
+" Plug(s)
+if filereadable(expand("~/.vim/plugged"))
+    call plug#begin('~/.vim/plugged')
+    Plug 'airblade/vim-gitgutter'
+endif
+
+
