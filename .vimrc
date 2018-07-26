@@ -1,114 +1,97 @@
 scriptencoding utf-8
 set encoding=utf-8
-" Use Vim settings, rather then Vi settings (much better!).
-" This must be first, because it changes other options as a side effect.
 set nocompatible
 
-" TODO: this may not be in the correct place. It is intended to allow overriding <Leader>.
-" source ~/.vimrc.before if it exists.
-if filereadable(expand("~/.vimrc.before"))
-  source ~/.vimrc.before
-endif
 
-" ================ General Config ====================
+                                    "
+                                    "   [ General ]
+                                    "
+set number                          " Line numbers are good
+set backspace=indent,eol,start      " Allow backspace in insert mode
+set history=1000                    " Store lots of :cmdline history
+set showcmd                         " Show incomplete cmds down the bottom
+set showmode                        " Show current mode down the bottom
+set bg=dark                         " Background
+set t_Co=256                        " Color(s)
+set gcr=a:blinkon0                  " Disable cursor blink
+set visualbell                      " No sounds
+set autoread                        " Reload files changed outside vim
+set hidden                          " Buffers can exist in the background without being in a window.
 
-set number                      "Line numbers are good
-set backspace=indent,eol,start  "Allow backspace in insert mode
-set history=1000                "Store lots of :cmdline history
-set showcmd                     "Show incomplete cmds down the bottom
-set showmode                    "Show current mode down the bottom
-set gcr=a:blinkon0              "Disable cursor blink
-set visualbell                  "No sounds
-set autoread                    "Reload files changed outside vim
 
-" This makes vim act like all other editors, buffers can
-" exist in the background without being in a window.
-" http://items.sjbach.com/319/configuring-vim-right
-set hidden
+                                    "
+                                    "   [ Completion ]
+                                    "
+set wildmode=list:longest           "^
+set wildmenu                        "^
+set wildignore=*.o,*.obj,*~         "^
+set wildignore+=*vim/backups*       "^
+set wildignore+=*sass-cache*        "^
+set wildignore+=*DS_Store*          "^
+set wildignore+=vendor/rails/**     "^
+set wildignore+=vendor/cache/**     "^
+set wildignore+=*.gem               "^
+set wildignore+=log/**              "^
+set wildignore+=tmp/**              "^
+set wildignore+=*.png,*.jpg,*.gif   "^
 
-"turn on syntax highlighting
-syntax on
 
-" Change leader to a comma because the backslash is too far away
-" That means all \x commands turn into ,x
-" The mapleader has to be set before vundle starts loading all 
-" the plugins.
-let mapleader=","
+                                    "
+                                    "   [ Fold ]
+                                    "
+set foldmethod=indent               " Fold based on indent
+set foldnestmax=3                   " Deepest fold is 3 levels
+set nofoldenable                    " Dont fold by default
 
-" =============== Vundle Initialization ===============
-" This loads all the plugins specified in ~/.vim/vundle.vim
-" Use Vundle plugin to manage all other plugins
-if filereadable(expand("~/.vim/vundles.vim"))
-  source ~/.vim/vundles.vim
-endif
 
-" ================ Turn Off Swap Files ==============
+                                    "
+                                    "   [ Indentation ]
+                                    "
+set autoindent                      "^
+set smartindent                     "^
+set smarttab                        "^
+set shiftwidth=4                    "^
+set softtabstop=4                   "^
+set tabstop=4                       "^
+set expandtab                       "^
+set list listchars=tab:\ \ ,trail:· "^
 
-set noswapfile
-set nobackup
-set nowb
 
-" ================ Persistent Undo ==================
-" Keep undo history across sessions, by storing in file.
-" Only works all the time.
-if has('persistent_undo')
-  silent !mkdir ~/.tmp/vim/backups > /dev/null 2>&1
-  set undodir=~/.tmp/vim/backups
-  set undofile
-endif
+                                    "
+                                    "   [ Scroll ]
+                                    "
+set scrolloff=8                     "^
+set sidescrolloff=15                "^
+set sidescroll=1                    "^
 
-" ================ Indentation ======================
 
-set autoindent
-set smartindent
-set smarttab
-set shiftwidth=4
-set softtabstop=4
-set tabstop=4
-set expandtab
+                                    "
+                                    "   [ Swap ]
+                                    "
+set noswapfile                      "^
+set nobackup                        "^
+set nowb                            "^
 
-filetype plugin on
-filetype indent on
 
-" Display tabs and trailing spaces visually
-set list listchars=tab:\ \ ,trail:·
+                                    "
+                                    "   [ Wrap ]
+                                    "
+set nowrap                          "^
+set linebreak                       "^
 
-set nowrap       "Don't wrap lines
-set linebreak    "Wrap lines at convenient points
+filetype plugin on                  "^
+filetype indent on                  "^
 
-" ================ Folds ============================
+syntax on                           " Syntax
 
-set foldmethod=indent   "fold based on indent
-set foldnestmax=3       "deepest fold is 3 levels
-set nofoldenable        "dont fold by default
 
-" ================ Completion =======================
+" Autocomplete
+autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 
-set wildmode=list:longest
-set wildmenu                "enable ctrl-n and ctrl-p to scroll thru matches
-set wildignore=*.o,*.obj,*~ "stuff to ignore when tab completing
-set wildignore+=*vim/backups*
-set wildignore+=*sass-cache*
-set wildignore+=*DS_Store*
-set wildignore+=vendor/rails/**
-set wildignore+=vendor/cache/**
-set wildignore+=*.gem
-set wildignore+=log/**
-set wildignore+=tmp/**
-set wildignore+=*.png,*.jpg,*.gif
 
-"
-" ================ Scrolling ========================
-
-set scrolloff=8         "Start scrolling when we're 8 lines away from margins
-set sidescrolloff=15
-set sidescroll=1
-
-"
-" =============== Colors ===========================
-set t_Co=256
+" Color(s)
 if filereadable(expand("~/.vim/colors/wombat256mod.vim"))
   colorscheme wombat256mod
 endif
-autocmd FileType php set omnifunc=phpcomplete#CompletePHP
-set bg=dark
+
+
