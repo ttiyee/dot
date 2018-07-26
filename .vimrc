@@ -96,9 +96,10 @@ endif
 
 
 " Plug(s)
-if filereadable(expand("~/.vim/plugged"))
+if filereadable(expand("~/.vim/autoload/plug.vim"))
     call plug#begin('~/.vim/plugged')
     Plug 'airblade/vim-gitgutter'
+    call plug#end()
 endif
 
 
