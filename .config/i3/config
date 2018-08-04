@@ -88,6 +88,11 @@
     bindsym XF86AudioLowerVolume    exec amixer set Master 5%-
     bindsym XF86AudioMute           exec amixer set Master toggle && amixer set Speaker toggle
 
+    # hotkeys - screenshot - scrot
+    bindsym --release Print            exec "scrot -m '/tmp/%s_%H%M_%d.%m.%Y_$wx$h.png'"
+    bindsym --release Shift+Print      exec "scrot -u '/tmp/%s_%H%M_%d%m%Y_$wx$h.png'"
+    bindsym --release $mod+Shift+Print exec "scrot -s '/tmp/%s_%H%M_%d%m%Y_$wx$h.png'"
+
     # i3gaps - gaps
     new_window pixel    3
     gaps inner          10
