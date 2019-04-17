@@ -45,7 +45,7 @@
     export HOSTNICKNAME=$(cat '/etc/hostname' | cut -d'-' -f1)
 
     # Path(s)
-    for path in $( find /git/develop -name bin 2> /dev/null ); do
+    for path in $( find /git/personal -name bin 2> /dev/null ); do
         export PATH="$PATH:$path"
     done
 
@@ -55,9 +55,12 @@
     # PS1
     PS1b='\[\e[1;97m\]'
     PS1e='\[\e[1;0m\]'
-    PS1u='\[\e[1;94m\]'
+    PS1u='\[\e[1;93m\]'
     PS1r='\[\e[1;0m\]'
-    if [ $UID -eq 0 ]; then
+    if [[ $USER == "user" ]]; then
+        PS1u='\[\e[1;94m\]'
+    fi
+    if [[ $UID -eq 0      ]]; then
         PS1u='\[\e[1;31m\]'
     fi
     PS1="$PS1b[$PS1u\u$PS1b@$PS1e$HOSTNICKNAME$PS1b] $PS1e\W$PS1b $PS1u::$PS1r "

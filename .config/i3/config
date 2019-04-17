@@ -2,7 +2,7 @@
 
     # global(s)
     set $mod Mod4
-    font pango:NotoSans 10
+    font pango:NotoSans 11
     floating_modifier $mod
 
     # bar
@@ -10,7 +10,7 @@
         i3bar_command  i3bar --bar_id bar-0
         status_command i3blocks -c ~/.config/i3/i3blocks.conf
         position top
-        font pango:FontAwesome 8,NotoSans 18
+        font pango:FontAwesome 8,NotoSans 11
         separator_symbol "::"
         colors {
             background #1b1d1f
@@ -27,6 +27,7 @@
     client.focused      #FFFFFF     #f0544c     #000000
 
     # exec(s)
+    exec --no-startup-id /usr/bin/blueman-applet
     exec --no-startup-id /usr/bin/gnome-settings-daemon
     exec --no-startup-id /usr/bin/nm-applet
 
@@ -36,7 +37,7 @@
     bindsym $mod+Shift+b exec google-chrome --incognito
     bindsym $mod+q kill
     bindsym $mod+x kill
-    bindsym $mod+d exec --no-startup-id dmenu_run -b -fn 'NotoSans-18'
+    bindsym $mod+d exec --no-startup-id dmenu_run -b -fn 'NotoSans-11'
     bindsym $mod+l exec i3lock
     bindsym $mod+Left focus left
     bindsym $mod+Down focus down
@@ -89,9 +90,8 @@
     bindsym XF86AudioMute           exec amixer set Master toggle && amixer set Speaker toggle
 
     # hotkeys - screenshot - scrot
-    bindsym --release Print            exec "scrot -m '/tmp/%s_%H%M_%d.%m.%Y_$wx$h.png'"
-    bindsym --release Shift+Print      exec "scrot -u '/tmp/%s_%H%M_%d%m%Y_$wx$h.png'"
-    bindsym --release $mod+Shift+Print exec "scrot -s '/tmp/%s_%H%M_%d%m%Y_$wx$h.png'"
+    bindsym --release Print            exec "xfce4-screenshooter -r"
+    bindsym --release Shift+Print      exec "xfce4-screenshooter -f"
 
     # i3gaps - gaps
     new_window pixel    3
