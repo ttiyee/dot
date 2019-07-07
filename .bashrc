@@ -23,13 +23,13 @@
     alias startxs='startx -- -dpi 75'
     alias syn="rsync --progress -avz -e ssh "
 
-    # Autocomplete
+    # Base16 Shell Color
+    [ -e "$HOME/.color" ] && bash "$HOME/.color"
+
+    # Bash Completition
     [ -r /etc/bash_completion.d/pass.bash-completion    ] && . /etc/bash_completion.d/pass.bash-completion
     [ -r /etc/docker.autocomplete                       ] && . /etc/docker.autocomplete
     [ -r /usr/share/bash-completion/bash_completion     ] && . /usr/share/bash-completion/bash_completion
-
-    # Base16 Shell Color
-    [ -e "$HOME/.color" ] && bash "$HOME/.color"
 
     # Enviromental(s)
     export EDITOR=vim
@@ -48,6 +48,7 @@
     for path in $( find /git/personal -name bin 2> /dev/null ); do
         export PATH="$PATH:$path"
     done
+    [ -e "$HOME/.bin" ] && export PATH="$PATH:$HOME/.bin"
 
     # Path(s) - Mark
     if hash mark 2>/dev/null; then cd "$( mark --latest )"; fi
