@@ -27,7 +27,6 @@
     client.focused      #FFFFFF     #f0544c     #000000
 
     # exec(s)
-    exec --no-startup-id /usr/bin/blueman-applet
     exec --no-startup-id /usr/bin/gnome-settings-daemon
     exec --no-startup-id /usr/bin/nm-applet
 
@@ -39,6 +38,7 @@
     bindsym $mod+x kill
     bindsym $mod+d exec --no-startup-id dmenu_run -b -fn 'NotoSans-11'
     bindsym $mod+l exec i3lock
+    bindsym $mod+Shift+v exec nordvpn-toggle
     bindsym $mod+Left focus left
     bindsym $mod+Down focus down
     bindsym $mod+Up focus up
