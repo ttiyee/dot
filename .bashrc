@@ -35,6 +35,7 @@
     export EDITOR=vim
     export GTK_THEME=Numix
     export SAL_USE_VCLPLUGIN=gtk
+    export SCRIPT="/opt/local/personal/script"
     export TERMINAL=gnome-terminal
     export VISUAL=vim
 
@@ -45,7 +46,7 @@
     export HOSTNICKNAME=$(cat '/etc/hostname' | tr '[:upper:]' '[:lower:]' | cut -d'-' -f1)
 
     # Path(s)
-    for path in $( find /git/personal -name bin 2> /dev/null ); do
+    for path in $( find "$SCRIPT" -name bin 2> /dev/null ); do
         export PATH="$PATH:$path"
     done
     [ -e "$HOME/.bin" ] && export PATH="$PATH:$HOME/.bin"
