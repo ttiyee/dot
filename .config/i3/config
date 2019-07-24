@@ -2,7 +2,7 @@
 
     # global(s)
     set $mod Mod4
-    font pango:NotoSans 16
+    font pango:NotoSans 12
     floating_modifier $mod
 
     # bar
@@ -10,7 +10,7 @@
         i3bar_command  i3bar --bar_id bar-0
         status_command i3blocks -c ~/.config/i3/i3blocks.conf
         position top
-        font pango:FontAwesome 8,NotoSans 16
+        font pango:FontAwesome 8,NotoSans 12
         separator_symbol "::"
         colors {
             background #1b1d1f
