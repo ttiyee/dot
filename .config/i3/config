@@ -28,6 +28,7 @@
 
     # exec(s)
     exec --no-startup-id /usr/bin/gnome-settings-daemon
+    exec --no-startup-id /usr/bin/blueman-applet
     exec --no-startup-id /usr/bin/nm-applet
 
     # hotkey(s)
