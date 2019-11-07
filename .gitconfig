@@ -1,5 +1,5 @@
 [user]
-	email = tim.yencken@gmail.com
-	name = tim
+    email = tim.yencken@gmail.com
+    name = Tim Yencken
 [push]
-	default = simple
+    default = simple
