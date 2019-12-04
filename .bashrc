@@ -35,7 +35,7 @@
     export EDITOR=vim
     export GTK_THEME=Numix
     export SAL_USE_VCLPLUGIN=gtk
-    export SCRIPT="/git/personal/script"
+    export SCRIPT="/opt/local/script"
     export TERMINAL=gnome-terminal
     export VISUAL=vim
 
